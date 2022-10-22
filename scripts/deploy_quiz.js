@@ -4,6 +4,9 @@ const main = async () => {
 	const quizContractFactory = await hre.ethers.getContractFactory("Quiz");
 	const quizContract = await quizContractFactory.deploy();
 	const quiz = await quizContract.deployed();
+	await quizContract.uploadQuiz("test1", "Description1");
+	await quizContract.uploadQuiz("test2", "Description2");
+	await quizContract.uploadQuiz("test3", "Description3");
 	console.log("Deploying contracts with account: ", deployer.address);
 	console.log("Account balance: ", accountBalance.toString());
 	console.log("Contract deployed to: ", quiz.address);
